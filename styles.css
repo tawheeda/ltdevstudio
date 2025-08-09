@@ -16,7 +16,6 @@
   --bg-color-mid: #f5f5f5;
   --bg-color-dark: #e6e6e6;
   --bg-color-white: #fff;
-  --border-color: #eee;
   --neumorphic-bg: #e0e5ec;
   --neumorphic-shadow-light: #ffffff;
   --neumorphic-shadow-dark: #a3b1c6;
@@ -211,92 +210,66 @@ nav {
 
 /* ==================== About Section ==================== */
 .about {
-    padding: var(--spacing-lg) var(--spacing-md);
-    background: var(--neumorphic-bg);
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--neumorphic-bg);
 }
 
 .neumorphic-about {
-    background: var(--neumorphic-bg);
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
-    padding: var(--spacing-lg);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
-    margin: auto;
+  background: var(--neumorphic-bg);
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
 }
 
 .about-text {
-    flex: 1;
-    min-width: 280px;
-    margin-right: var(--spacing-md);
+  flex: 1;
+  min-width: 280px;
+  margin-right: var(--spacing-md);
 }
 
 .about-text h2 {
-    font-size: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary-color);
+  font-size: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
 }
 
 .about-img {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-}
-
-.about-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--spacing-sm);
-}
-
-@media (max-width: 768px) {
-    .neumorphic-about {
-        flex-direction: column;
-        padding: var(--spacing-md);
-    }
-    .about-text {
-        margin-right: 0;
-        margin-bottom: var(--spacing-md);
-        text-align: center;
-    }
-    .about-img {
-        margin-bottom: var(--spacing-md);
-    }
-    .about-img img {
-        max-width: 70%;
-        height: auto;
-    }
-}
-
-
-/* ==================== Services Section ==================== */
-.services {
-  padding: 80px 20px;
-  background-color: var(--neumorphic-bg);
+  flex: 1;
+  min-width: 250px;
   text-align: center;
 }
 
-.services-title {
-  font-family: var(--font-heading);
-  font-size: 2.8em;
-  color: var(--primary-color);
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
+.about-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--spacing-sm);
 }
 
-.services-title::after {
-  content: '';
-  position: absolute;
-  width: 60%;
-  height: 4px;
-  background-color: var(--primary-color);
-  left: 20%;
-  bottom: -15px;
-  border-radius: 2px;
+@media (max-width: 768px) {
+  .neumorphic-about {
+    flex-direction: column;
+    padding: var(--spacing-md);
+  }
+  .about-text {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    /* Increased padding on mobile to prevent text from hitting the edges */
+    padding: 0 20px;
+  }
+  .about-img {
+    margin-bottom: var(--spacing-md);
+  }
+  .about-img img {
+    max-width: 70%;
+    height: auto;
+  }
 }
 
 /* ==================== Services Section ==================== */
@@ -337,7 +310,7 @@ nav {
 
 .neumorphic-service-item {
   background-color: var(--neumorphic-bg);
-  padding: 30px;
+  padding: 40px 20px; /* Updated for more padding on mobile */
   border-radius: 10px;
   box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
   text-align: center;
@@ -405,20 +378,23 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .service-slider {
-        /* Add some padding to prevent buttons from overlapping content */
-        padding: 20px 50px;
-    }
+  .services {
+    padding: 50px 10px;
+  }
+  .service-slider {
+    padding: 20px 50px;
+  }
+  .neumorphic-service-item {
+    padding: 40px 20px;
+  }
+  .service-slider .prev-service {
+    left: 5px;
+  }
 
-    .service-slider .prev-service {
-        left: 5px;
-    }
-
-    .service-slider .next-service {
-        right: 5px;
-    }
+  .service-slider .next-service {
+    right: 5px;
+  }
 }
-
 
 /* ==================== Neumorphic Table Styles ==================== */
 .table-responsive {
@@ -561,7 +537,6 @@ nav {
 }
 
 /* ==================== Contact Section ==================== */
-/* ==================== Contact Section ==================== */
 .contact {
   background: var(--neumorphic-bg);
   padding: var(--spacing-lg) var(--spacing-md);
@@ -692,10 +667,10 @@ nav {
 }
 
 .project-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 /* ==================== Responsive Styles for Mobile ==================== */
@@ -725,7 +700,6 @@ nav {
     padding: 1rem 0 0;
   }
 }
-
 
 /* ==================== Footer ==================== */
 footer {
@@ -879,4 +853,7 @@ footer {
 
 .popup .btn-primary:hover {
   box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+.popup .btn-primary:active {
+  box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
 }
