@@ -81,4 +81,32 @@ document.addEventListener('DOMContentLoaded', () => {
             nextServiceBtn.addEventListener('click', nextService);
         }
     }
+
+    // ---------- Project Card Mobile Click Logic ----------
+    // This script handles the toggle of project details on mobile click
+    const projectCards = document.querySelectorAll('.js-project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Check if the screen is a mobile size (e.g., less than 768px)
+            if (window.innerWidth <= 768) {
+                // Check if the clicked card is already active
+                const isActive = card.classList.contains('active');
+    
+                // Remove the 'active' class from all other cards to close them
+                projectCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('active');
+                    }
+                });
+    
+                // Toggle the 'active' class on the clicked card
+                if (!isActive) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            }
+        });
+    });
 });

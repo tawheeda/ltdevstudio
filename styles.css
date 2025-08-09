@@ -587,7 +587,7 @@ nav {
   box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
 }
 
-/* ==================== Projects Section ==================== */
+/* ==================== Projects Section (Updated) ==================== */
 .projects {
   padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
@@ -601,15 +601,28 @@ nav {
 }
 
 .project-card {
+  /* Basic card styling */
   background: var(--neumorphic-bg);
   border-radius: var(--spacing-sm);
   padding: 1.5rem;
   box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
   text-align: left;
-  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  /* Initial height to show only the image */
+  height: 350px;
+  transition: height 0.4s ease, box-shadow 0.3s ease;
+  
+  /* Required for keyboard navigation */
+  outline: none;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus {
+  /* On hover/focus, expand the card and change shadow */
+  height: auto;
   box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
 }
 
@@ -618,6 +631,60 @@ nav {
   border-radius: 0.8rem;
   margin-bottom: var(--spacing-sm);
 }
+
+.project-details {
+  /* Initially hide the details section */
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: opacity 0.4s ease, height 0.4s ease, padding 0.4s ease;
+}
+
+.project-card:hover .project-details,
+.project-card:focus .project-details,
+.project-card.active .project-details {
+  /* Show the details on hover/focus or when active (mobile) */
+  opacity: 1;
+  height: auto;
+  padding: 1rem 0 0;
+}
+
+.project-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* ==================== Responsive Styles for Mobile ==================== */
+@media (max-width: 768px) {
+  /* On mobile, remove hover effect and set initial height to auto */
+  .project-card {
+    height: auto;
+  }
+
+  .project-card:hover,
+  .project-card:focus {
+    height: auto; /* Ensure hover doesn't mess with mobile layout */
+    box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
+  }
+
+  .project-details {
+    /* Initially hide the details on mobile */
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+
+  .project-card.active .project-details {
+    /* Only show details on mobile when the 'active' class is present */
+    opacity: 1;
+    height: auto;
+    padding: 1rem 0 0;
+  }
+}
+
 
 /* ==================== Footer ==================== */
 footer {
