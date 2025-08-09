@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LT Dev Studio | Services</title>
+  <link href="Logoo.png" rel="icon">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">LT Dev Studio</div>
+      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="services container" data-aos="fade-up">
+  <h2 class="section-title">Web Design & Development Services 💅</h2>
+  <p class="section-subtitle">Affordable, professional web solutions tailored for individuals, small businesses, and startups.</p>
+
+  <!-- Project Tiers -->
+  <h3 class="table-title">💼 Project Tiers</h3>
+  <div class="table-responsive">
+    <table class="neumorphic-table">
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>Price (ZAR)</th>
+          <th>Ideal For</th>
+          <th>Includes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Tier"><strong>Basic</strong></td>
+          <td data-label="Price (ZAR)">R2,000 – R3,000</td>
+          <td data-label="Ideal For">Small businesses, portfolios</td>
+          <td data-label="Includes">3–4 page static site, mobile responsive, contact form, landing page</td>
+        </tr>
+        <tr>
+          <td data-label="Tier"><strong>Standard</strong></td>
+          <td data-label="Price (ZAR)">R4,000 – R5,500</td>
+          <td data-label="Ideal For">SMEs, startups</td>
+          <td data-label="Includes">ASP.NET Core MVC site or simple e-commerce, up to 6 pages, admin panel or product catalog</td>
+        </tr>
+        <tr>
+          <td data-label="Tier"><strong>Premium</strong></td>
+          <td data-label="Price (ZAR)">R6,000 – R9,000+</td>
+          <td data-label="Ideal For">Custom web apps or full-featured e-commerce</td>
+          <td data-label="Includes">Login/auth, payment integration, dashboards, advanced backend logic</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Additional Services -->
+  <h3 class="table-title">🛠️ Additional Services</h3>
+  <div class="table-responsive">
+    <table class="neumorphic-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price Range (ZAR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Service">Hosting & domain setup</td>
+          <td data-label="Price (ZAR)">R3 180 p/a (excl VAT)</td>
+        </tr>
+        <tr>
+          <td data-label="Service">Maintenance (monthly)</td>
+          <td data-label="Price Range (ZAR)">R800 – R1,500/mo</td>
+        </tr>
+        <tr>
+          <td data-label="Service">SEO setup (basic)</td>
+          <td data-label="Price Range (ZAR)">R700 – R1,200</td>
+        </tr>
+        <tr>
+          <td data-label="Service">Content upload & images</td>
+          <td data-label="Price Range (ZAR)">R300 – R800</td>
+        </tr>
+        <tr>
+          <td data-label="Service">Bug fixes post-launch</td>
+          <td data-label="Price Range (ZAR)">Free for 2 weeks, then hourly or R500+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 LT Dev Studio. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
+      <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile nav on link click
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

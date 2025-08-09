@@ -1,0 +1,774 @@
+/* ==================== Base Reset ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --primary-color: #111;
+  --secondary-color: #555;
+  --text-color: #222;
+  --light-text-color: #444;
+  --subtle-text-color: #666;
+  --bg-color-light: #f9f9f9;
+  --bg-color-mid: #f5f5f5;
+  --bg-color-dark: #e6e6e6;
+  --bg-color-white: #fff;
+  --border-color: #eee;
+  --neumorphic-bg: #e0e5ec;
+  --neumorphic-shadow-light: #ffffff;
+  --neumorphic-shadow-dark: #a3b1c6;
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f2f3f4; /* Updated as requested */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+}
+
+/* ==================== Utility Classes ==================== */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==================== Navigation ==================== */
+header {
+  background: var(--neumorphic-bg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
+  border-radius: 20px;
+  margin: var(--spacing-sm) auto;
+  max-width: 1200px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--neumorphic-bg);
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.menu-toggle:hover {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
+  background: var(--neumorphic-bg);
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+/* ---------- Mobile Navigation ---------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: var(--spacing-md);
+    background: var(--neumorphic-bg);
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* ==================== Buttons ==================== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.neumorphic-button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--neumorphic-bg);
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.neumorphic-button:hover {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-button:active {
+  box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+}
+
+.neumorphic-hero {
+  background: var(--neumorphic-bg);
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--light-text-color);
+  margin-bottom: 1.5rem;
+}
+
+/* ==================== About Section ==================== */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--neumorphic-bg); /* Updated for neumorphic look */
+}
+
+.neumorphic-about {
+  background: var(--neumorphic-bg);
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+  margin-right: var(--spacing-md);
+}
+
+.about-text h2 {
+  font-size: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.about-img {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.about-img img {
+  max-width: 100%;
+  border-radius: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .neumorphic-about {
+    flex-direction: column;
+  }
+
+  .about-text {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .about-img {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-img img {
+    max-width: 70%;
+  }
+}
+
+/* ==================== Services Section ==================== */
+.services {
+  padding: 80px 20px;
+  background-color: var(--neumorphic-bg);
+  text-align: center;
+}
+
+.services-title {
+  font-family: var(--font-heading);
+  font-size: 2.8em;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.services-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background-color: var(--primary-color);
+  left: 20%;
+  bottom: -15px;
+  border-radius: 2px;
+}
+
+/* --- Service Slider specific styles --- */
+.service-slider {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.neumorphic-service-item {
+  background-color: var(--neumorphic-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  left: 0;
+}
+
+.neumorphic-service-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+.service-item h3 {
+  font-size: 1.8em;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.service-item p {
+  font-family: var(--font-body);
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: var(--secondary-color);
+}
+
+.service-slider .slider-btn {
+  background-color: var(--neumorphic-bg);
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+  color: var(--primary-color);
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.2s ease;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.service-slider .slider-btn:hover {
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.service-slider .prev-service {
+  left: -20px;
+}
+
+.service-slider .next-service {
+  right: -20px;
+}
+
+@media (max-width: 768px) {
+  .service-slider .prev-service {
+    left: 5px;
+  }
+
+  .service-slider .next-service {
+    right: 5px;
+  }
+}
+
+.services-description {
+  font-family: var(--font-body);
+  font-size: 1.1em;
+  color: var(--subtle-text-color);
+  margin-bottom: 30px;
+}
+
+/* ==================== Neumorphic Table Styles ==================== */
+.table-responsive {
+  max-width: 960px;
+  margin: var(--spacing-md) auto;
+  overflow-x: auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.neumorphic-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--neumorphic-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-table th, .neumorphic-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--neumorphic-shadow-dark);
+}
+
+.neumorphic-table thead {
+  background: var(--neumorphic-bg);
+}
+
+.neumorphic-table th {
+  font-weight: 700;
+  color: var(--light-text-color);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: inset 2px 2px 5px var(--neumorphic-shadow-dark), inset -2px -2px 5px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-table tbody tr:nth-child(even) {
+  background: #e9eff5; /* Slightly different shade for zebra stripes */
+}
+
+.neumorphic-table tbody tr:hover {
+  background: var(--bg-color-mid);
+  transition: background 0.3s ease;
+  box-shadow: inset 2px 2px 5px var(--neumorphic-shadow-dark), inset -2px -2px 5px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-table td {
+  color: var(--text-color);
+}
+
+.table-title {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+}
+
+/* ==================== Responsive Tables ==================== */
+@media (max-width: 768px) {
+  .neumorphic-table tr,
+  .neumorphic-table th,
+  .neumorphic-table td {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .neumorphic-table thead {
+    display: none;
+  }
+
+  .neumorphic-table tr {
+    margin-bottom: var(--spacing-sm);
+    background: var(--neumorphic-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+
+  .neumorphic-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    display: block;
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==================== Testimonials Section ==================== */
+.testimonials {
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+  background: var(--neumorphic-bg); /* Updated for neumorphic look */
+}
+
+.testimonials-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  border-radius: 1rem;
+  background: var(--neumorphic-bg);
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+}
+
+.testimonial-slider {
+  max-width: 600px;
+  margin: var(--spacing-md) auto 0;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.testimonial {
+  background: var(--bg-color-white);
+  padding: 1.5rem;
+  border-radius: var(--spacing-sm);
+  font-style: italic;
+  box-shadow: 3px 3px 6px var(--neumorphic-shadow-dark), -3px -3px 6px var(--neumorphic-shadow-light);
+  color: var(--light-text-color);
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.8s ease;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.testimonial.active {
+  opacity: 1;
+  position: relative;
+}
+
+.testimonials h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+/* ==================== Contact Section ==================== */
+.contact {
+  background: var(--neumorphic-bg);
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+}
+
+.neumorphic-form {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-input {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: var(--neumorphic-bg);
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+  font-size: 16px;
+  resize: none;
+  transition: all 0.2s ease;
+}
+
+.neumorphic-input:focus {
+  box-shadow:
+    0 0 6px rgba(179, 0, 89, 0.4),
+    inset 4px 4px 8px var(--neumorphic-shadow-dark),
+    inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--neumorphic-bg);
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.neumorphic-button:hover {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.neumorphic-button:active {
+  box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
+}
+
+/* ==================== Projects Section ==================== */
+.projects {
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.project-card {
+  background: var(--neumorphic-bg);
+  border-radius: var(--spacing-sm);
+  padding: 1.5rem;
+  box-shadow: 6px 6px 12px var(--neumorphic-shadow-dark), -6px -6px 12px var(--neumorphic-shadow-light);
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 0.8rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ==================== Footer ==================== */
+footer {
+  background: var(--neumorphic-bg);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+  border-radius: 20px;
+  margin-top: var(--spacing-md);
+  color: var(--light-text-color);
+}
+
+.socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  background: var(--neumorphic-bg);
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+  transform: translateY(-2px);
+}
+
+.socials a:active {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+  transform: translateY(0);
+}
+
+/* ---------- Popup Overlay ---------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: var(--spacing-sm);
+}
+
+.popup {
+  padding: var(--spacing-md);
+  max-width: 500px;
+  width: 90%;
+  border-radius: var(--spacing-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInScale 0.3s ease forwards;
+}
+
+.neumorphic-popup {
+  background: var(--neumorphic-bg);
+  box-shadow: 10px 10px 20px var(--neumorphic-shadow-dark), -10px -10px 20px var(--neumorphic-shadow-light);
+  border-radius: 20px;
+  padding: var(--spacing-md);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popup h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.popup label {
+  display: block;
+  margin: var(--spacing-sm) 0 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.popup textarea,
+.popup input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing-sm);
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: var(--neumorphic-bg);
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.2s ease;
+}
+
+.popup textarea:focus,
+.popup input:focus {
+  box-shadow:
+    0 0 6px rgba(179, 0, 89, 0.4),
+    inset 4px 4px 8px var(--neumorphic-shadow-dark),
+    inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.popup .btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  background: var(--neumorphic-bg);
+  box-shadow: 4px 4px 8px var(--neumorphic-shadow-dark), -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.popup .btn-cancel {
+  color: var(--secondary-color);
+}
+
+.popup .btn-cancel:hover {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}
+
+.popup .btn-primary {
+  color: var(--primary-color);
+}
+
+.popup .btn-primary:hover {
+  box-shadow: inset 4px 4px 8px var(--neumorphic-shadow-dark), inset -4px -4px 8px var(--neumorphic-shadow-light);
+}

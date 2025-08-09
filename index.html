@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LT Dev Studio</title>
+    <link href="Logoo.png" rel="icon">
+    <link rel="stylesheet" href="styles.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LT Dev Studio</div>
+            <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+<br>
+        <section id="hero" class="hero neumorphic-hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I build elegant and functional websites that convert ideas into reality.</p>
+            <a href="#about" class="btn neumorphic-button">Get Started</a>
+        </section>
+<br>
+        <section id="about" class="about" data-aos="fade-up">
+            <div class="neumorphic-about">
+                <div class="about-text">
+                    <h2>Hello, I'm LaOne</h2>
+                    <p>I'm a passionate and detail-oriented freelance web developer with a flair for elegant designs and clean, functional code. I specialize in both frontend and backend development, using technologies like HTML, CSS, JavaScript, and ASP.NET Core to bring digital ideas to life.</p>
+                    <p><br>Whether you're a small business owner needing a polished web presence, a startup seeking a scalable solution, or someone with a vision that needs building — I'm here to help. I believe in clear communication, thoughtful design, and reliable delivery.</p>
+                    <p>You're not just hiring a developer — you're gaining a partner who’s genuinely invested in your success.</p>
+                    <p><strong>Let’s build something amazing together.</strong></p>
+                    <br>
+                    <a href="#" class="btn neumorphic-button" onclick="openIdeaForm()">Let's Build</a>
+                </div>
+                <div class="about-img">
+                    <img src="taweezy.jpg" alt="LaOne portrait" />
+                </div>
+            </div>
+        </section>
+<br>
+<section id="services" class="services">
+  <h2>What I Offer</h2>
+  <div class="service-slider">
+    <div class="neumorphic-service-item active">
+      <h3>🌐 Web Development</h3>
+      <p>Static & dynamic websites built with HTML, CSS, JS, and ASP.NET Core to bring your digital ideas to life.</p>
+    </div>
+    <div class="neumorphic-service-item">
+      <h3>🛒 E-commerce Solutions</h3>
+      <p>Crafting beautiful and secure online stores with seamless payment integration to boost your sales.</p>
+    </div>
+    <div class="neumorphic-service-item">
+      <h3>🛠 Website Maintenance</h3>
+      <p>Ensuring your website stays updated, secure, and performs optimally with ongoing maintenance and support.</p>
+    </div>
+    <div class="neumorphic-service-item">
+      <h3>🎨 UI/UX Design</h3>
+      <p>Designing intuitive and aesthetically pleasing user interfaces that are easy to use and enhance user experience.</p>
+    </div>
+    <button class="slider-btn prev-service">&lt;</button>
+    <button class="slider-btn next-service">&gt;</button>
+  </div>
+  <p>For More Details, go to: <br><br><a href="services.html" class="neumorphic-button">Services</a></p>
+</section>
+<br>
+<section id="testimonials" class="testimonials">
+    <h2>Client Testimonials 💬</h2>
+    <div class="testimonials-inner">
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"We are beyond impressed with the website created for our company. With nothing but our logo, they delivered a stunning, professional site that truly represents our brand. The communication and support were exceptional. Absolutely the best service we’ve ever received!"</p>
+                <span>– Captured Production</span>
+            </div>
+            <div class="testimonial">
+                <p>"Our new website is exactly what we needed—modern, clean, and easy for our clients to navigate. LaOne was responsive, professional, and handled every revision with patience. Highly recommended!"</p>
+                <span>– Mshengu Hanson Engineering</span>
+            </div>
+            <div class="testimonial">
+                <p>"From layout to functionality, every detail was executed with precision. Our site now reflects the professional image we were aiming for. Working with LaOne was a smooth and productive experience."</p>
+                <span>– InfoTech Managed Solutions</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<section class="contact">
+    <h2>Get in Touch</h2>
+    <form action="#" method="post" class="neumorphic-form">
+        <label for="name" class="visually-hidden">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required class="neumorphic-input">
+
+        <label for="email" class="visually-hidden">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required class="neumorphic-input">
+
+        <label for="message" class="visually-hidden">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="neumorphic-input"></textarea>
+        
+        <button type="submit" class="neumorphic-button">Send Message</button>
+    </form>
+</section>
+
+<br>
+<footer>
+    <p>&copy; 2025 LT Dev Studio. All rights reserved.</p>
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
+        <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
+        <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
+    </div>
+</footer>
+
+ <div id="ideaFormOverlay" class="overlay">
+   <div class="popup neumorphic-popup">
+     <h2>Suggest What I Should Build Next 💡</h2>
+     <form action="https://getform.io/f/bwnwmpxa" method="POST">
+       <label for="idea">Your idea:</label>
+       <textarea id="idea" name="idea" rows="5" placeholder="E.g. Build a budgeting app, a portfolio template, etc." required></textarea>
+       <label for="email">Optional: Your email (if you'd like a reply)</label>
+       <input type="email" id="email" name="email" placeholder="you@example.com" />
+       <input type="text" name="_gotcha" style="display:none">
+       <div class="popup-buttons">
+         <button type="submit" class="btn neumorphic-button btn-primary">Submit</button>
+         <button type="button" class="btn neumorphic-button btn-cancel" onclick="closeIdeaForm()">Cancel</button>
+       </div>
+     </form>
+   </div>
+ </div>
+ 
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Keep this line here as it depends on the AOS library being loaded immediately before it.
+    </script>
+    <script src="script.js" defer></script>
+
+</body>
+</html>

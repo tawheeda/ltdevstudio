@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LT Dev Studio - Projects</title>
+  <link href="Logoo.png" rel="icon">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">LT Dev Studio</div>
+      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-grid">
+
+      <div class="project-card" data-aos="fade-up">
+        <img src="myResume.jpg" alt="Resume Portfolio Screenshot">
+        <h3>Resume Portfolio</h3>
+        <p>
+          A personal portfolio site built with ASP.NET Core and Chart.js, showcasing skills, work experience, services, and projects in a clean, evolving interface.
+        </p><br><br><br>
+        <a href="https://github.com/tawheeda/MyResumePortfolio" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="hiremetools.jpg" alt="Hire Me Tools Screenshot">
+        <h3>Hire Me Tools</h3>
+        <p>
+          A rental platform for construction tools where users can register, manage rentals, and track deposits, while admins oversee users, tools, and transactions via a clean dashboard. Built with C# and ASP.NET Core MVC.
+        </p><br>
+        <a href="https://github.com/tawheeda/HireMeTools" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="daf.jpg" alt="Disaster Alleviation Foundation Screenshot">
+        <h3>Disaster Alleviation Foundation Web App</h3>
+        <p>
+          A web app for a non-profit supporting disaster relief, tracking donations (goods and monetary) and managing distributions for active relief efforts. Developed with C# and ASP.NET Core.
+        </p><br>
+        <a href="https://github.com/tawheeda/Disaster-Alleviation-Foundation-POE" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="baggr.jpg" alt="Baggr Landing Page Screenshot">
+        <h3>Baggr</h3>
+        <p>
+          A peer-to-peer trading platform landing page for South Africans, featuring a clean layout, bold headline, waitlist signup form, and modern branding to build anticipation for launch.
+        </p><br><br><br>
+        <a href="https://github.com/tawheeda/Baggr" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="zombiearena.jpg" alt="Baggr Landing Page Screenshot">
+        <h3>Zombie Arena</h3>
+        <p>
+            This is a text-based zombie survival game in C# called Zombie Arena. The player battles waves of randomly generated zombies with increasing difficulty. On each wave, the player can choose to attack, use a healing potion, or flee (with a penalty). After surviving a wave, the player may receive random rewards like health, potions, or increased attack power. The game continues until the player's health drops to zero, at which point their final wave count is displayed.        </p><br><br><br>
+        <a href="https://github.com/tawheeda/ZombieArenar" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="scrabble.jpg" alt="Baggr Landing Page Screenshot">
+        <h3>Scrabble</h3>
+        <p>
+          This is a simplified two-player Scrabble word game in C#. Players take turns entering words, and the program checks if each word is valid based on a predefined dictionary. If valid, it calculates the word's score using classic Scrabble letter values and keeps track of each player's total. The game continues until a player types "EXIT", after which the final scores are displayed along with the winner.        </p><br><br><br>
+        <a href="https://github.com/tawheeda/Baggr" target="_blank" class="btn">View on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LT Dev Studio. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
+      <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close nav on link click for mobile
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+  
+</body>
+</html>
