@@ -299,6 +299,33 @@ nav {
   border-radius: 2px;
 }
 
+/* ==================== Services Section ==================== */
+.services {
+  padding: 80px 20px;
+  background-color: var(--neumorphic-bg);
+  text-align: center;
+}
+
+.services-title {
+  font-family: var(--font-heading);
+  font-size: 2.8em;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.services-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background-color: var(--primary-color);
+  left: 20%;
+  bottom: -15px;
+  border-radius: 2px;
+}
+
 /* --- Service Slider specific styles --- */
 .service-slider {
   max-width: 700px;
@@ -370,22 +397,28 @@ nav {
   right: -20px;
 }
 
-@media (max-width: 768px) {
-  .service-slider .prev-service {
-    left: 5px;
-  }
-
-  .service-slider .next-service {
-    right: 5px;
-  }
-}
-
 .services-description {
   font-family: var(--font-body);
   font-size: 1.1em;
   color: var(--subtle-text-color);
   margin-bottom: 30px;
 }
+
+@media (max-width: 768px) {
+    .service-slider {
+        /* Add some padding to prevent buttons from overlapping content */
+        padding: 20px 50px;
+    }
+
+    .service-slider .prev-service {
+        left: 5px;
+    }
+
+    .service-slider .next-service {
+        right: 5px;
+    }
+}
+
 
 /* ==================== Neumorphic Table Styles ==================== */
 .table-responsive {
@@ -528,6 +561,7 @@ nav {
 }
 
 /* ==================== Contact Section ==================== */
+/* ==================== Contact Section ==================== */
 .contact {
   background: var(--neumorphic-bg);
   padding: var(--spacing-lg) var(--spacing-md);
@@ -582,6 +616,16 @@ nav {
 
 .neumorphic-button:active {
   box-shadow: inset 6px 6px 12px var(--neumorphic-shadow-dark), inset -6px -6px 12px var(--neumorphic-shadow-light);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .neumorphic-form {
+    padding: 20px;
+  }
 }
 
 /* ==================== Projects Section (Updated) ==================== */
