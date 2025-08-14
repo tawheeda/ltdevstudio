@@ -507,6 +507,52 @@ nav{ position: relative; }
   .next-service{ right: 8px; }
 }
 
+/* Overlay already present in your CSS */
+.overlay[hidden]{ display:none !important; }
+.overlay{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background: rgba(0,0,0,.6); z-index:50; padding:16px;
+}
+
+/* Popup shell */
+.neumorphic-popup{
+  width:100%; max-width:560px;
+  background: linear-gradient(180deg, #0d1934, #0b1730);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:20px;
+  box-shadow: 0 14px 36px rgba(2,6,23,.6);
+  animation: pop-fade .18s ease-out;
+}
+.neumorphic-popup h2{
+  margin:.25rem 0 1rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  letter-spacing:.2px;
+}
+
+/* Reuse .neumorphic-form styles you already have; add niceties */
+.neumorphic-popup .neumorphic-form label{
+  font-weight:600; color:#cfe0ff; margin-bottom:4px;
+}
+.neumorphic-popup .neumorphic-form textarea,
+.neumorphic-popup .neumorphic-form input{
+  background:#0b1630; border:1px solid #2b3a63; color:#e6ecff;
+  border-radius:10px; padding:12px;
+}
+.neumorphic-popup .neumorphic-form textarea::placeholder,
+.neumorphic-popup .neumorphic-form input::placeholder{ color:#8fa3cc; }
+
+/* Buttons row */
+.popup-buttons{
+  display:flex; gap:10px; justify-content:flex-end; margin-top:8px;
+}
+
+/* Tiny entrance */
+@keyframes pop-fade{
+  from{ opacity:0; transform: translateY(6px) scale(.98); }
+  to{ opacity:1; transform: translateY(0) scale(1); }
+}
+
+
 /* =========================================
    LT DEV STUDIO — End of stylesheet
    ========================================= */
