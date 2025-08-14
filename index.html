@@ -1,171 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>LT Dev Studio</title>
-    <link href="Logoo.png" rel="icon">
-    <link rel="stylesheet" href="styles.css" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LT Dev Studio</title>
+ <link href="mark-lt-outline.svg" rel="icon">
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">LT Dev Studio</div>
-            <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="Projects.html">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
-<br>
-        <section id="hero" class="hero neumorphic-hero">
-            <h1>Welcome to My Portfolio</h1>
-            <p>I build elegant and functional websites that convert ideas into reality.</p>
-            <a href="#about" class="btn neumorphic-button">Get Started</a>
-        </section>
-<br>
-<section id="about" class="about" data-aos="fade-up">
+<header>
+  <nav>
+    <a href="index.html" class="brand" aria-label="LT Dev Studio">
+      <img src="mark-lt-outline.svg" alt="LT Dev Studio logo" width="28" height="28" />
+      <span class="brand-text">LT Dev Studio</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
+
+    <ul id="primary-nav" class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <!-- Re-enable this if you add the section back:
+      <li><a href="#testimonials">Testimonials</a></li>
+      -->
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Projects.html">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+  <br>
+
+  <!-- Hero -->
+  <section id="hero" class="hero" data-aos="fade-up">
+    <div class="hero-inner">
+      <div>
+        <h1>Design-driven web development for modern brands</h1>
+        <p>I craft fast, accessible websites and light web apps. Clean code, clear UX, and measurable results.</p>
+        <div class="actions">
+          <a href="Projects.html" class="btn">See Projects</a>
+          <a href="services.html" class="btn btn--ghost">Services & Pricing</a>
+        </div>
+      </div>
+      <!-- Use your logo instead of portrait if preferred -->
+      <img src="mark-lt.svg" alt="LT Dev Studio logo" style="width:100%; border-radius:12px; box-shadow:0 6px 22px rgba(15,23,42,.08); object-fit:contain; aspect-ratio: 4/3; background:#0b1220;">
+    </div>
+  </section>
+
+  <br>
+
+  <!-- About -->
+  <section id="about" class="about" data-aos="fade-up">
     <div class="neumorphic-about">
-        
-        <!-- About Text -->
-        <div class="about-text fade-in delay-1">
-            <h2>Hello, I'm <span class="highlight">LaOne</span></h2>
-            <p>
-                I'm a passionate and detail-oriented freelance web developer with a flair for elegant designs and clean, functional code. 
-                I specialize in both frontend and backend development, using technologies like 
-                <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>ASP.NET Core</strong> 
-                to bring digital ideas to life.
-            </p>
-            <p>
-                Whether you're a small business owner needing a polished web presence, a startup seeking a scalable solution, 
-                or someone with a vision that needs building — I'm here to help. 
-                I believe in clear communication, thoughtful design, and reliable delivery.
-            </p>
-            <p>
-                You're not just hiring a developer — you're gaining a partner who’s genuinely invested in your success.
-            </p>
-            <p><strong>Let’s build something amazing together.</strong></p>
+      <div class="about-text fade-in delay-1">
+        <h2>Hello, I'm <span class="highlight">LaOne</span></h2>
+        <p>
+          I'm a passionate and detail-oriented freelance web developer with a flair for elegant designs and clean, functional code.
+          I specialize in both frontend and backend development, using technologies like
+          <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>ASP.NET Core</strong>.
+        </p>
+        <p>
+          Whether you’re a small business needing a polished web presence, a startup seeking a scalable solution, or
+          someone with a vision that needs building — I’m here to help.
+        </p>
+        <p><strong>Let’s build something amazing together.</strong></p>
+        <a href="#" class="btn" onclick="openIdeaForm()">Let's Build</a>
+      </div>
 
-           <br> <a href="#" class="btn neumorphic-button" onclick="openIdeaForm()">Let's Build</a>
-        </div>
+      <div class="about-img fade-in delay-2">
+        <img src="taweezy.jpg" alt="LaOne portrait" />
+      </div>
+    </div>
+  </section>
 
-        <!-- About Image -->
-        <div class="about-img fade-in delay-2">
-            <img src="taweezy.jpg" alt="LaOne portrait" />
-        </div>
+  <br>
 
-    </div>
-</section>
+  <!-- Services -->
+  <section id="services" class="services container" data-aos="fade-up">
+    <h2 class="section-title">What I Offer</h2>
+    <p class="section-subtitle">Focused capabilities for results-driven websites and web apps.</p>
 
+    <div class="service-slider">
+      <div class="neumorphic-service-item active">
+        <h3>Web Development</h3>
+        <p>Static & dynamic websites built with modern HTML, CSS, JS, and ASP.NET Core.</p>
+      </div>
+      <div class="neumorphic-service-item">
+        <h3>E-commerce Solutions</h3>
+        <p>Beautiful, secure online stores with payment integration and product management.</p>
+      </div>
+      <div class="neumorphic-service-item">
+        <h3>Website Maintenance</h3>
+        <p>Updates, security, and performance care so your site stays fast and reliable.</p>
+      </div>
+      <div class="neumorphic-service-item">
+        <h3>UI/UX Design</h3>
+        <p>Clear, usable interfaces with thoughtful interaction and accessible components.</p>
+      </div>
 
-<br>
-<section id="services" class="services">
-  <h2>What I Offer</h2>
-  <div class="service-slider">
-    <div class="neumorphic-service-item active">
-      <h3>🌐 Web Development</h3>
-      <p>Static & dynamic websites built with HTML, CSS, JS, and ASP.NET Core to bring your digital ideas to life.</p>
+      <button class="slider-btn prev-service" aria-label="Previous service">&lt;</button>
+      <button class="slider-btn next-service" aria-label="Next service">&gt;</button>
     </div>
-    <div class="neumorphic-service-item">
-      <h3>🛒 E-commerce Solutions</h3>
-      <p>Crafting beautiful and secure online stores with seamless payment integration to boost your sales.</p>
-    </div>
-    <div class="neumorphic-service-item">
-      <h3>🛠 Website Maintenance</h3>
-      <p>Ensuring your website stays updated, secure, and performs optimally with ongoing maintenance and support.</p>
-    </div>
-    <div class="neumorphic-service-item">
-      <h3>🎨 UI/UX Design</h3>
-      <p>Designing intuitive and aesthetically pleasing user interfaces that are easy to use and enhance user experience.</p>
-    </div>
-    <button class="slider-btn prev-service">&lt;</button>
-    <button class="slider-btn next-service">&gt;</button>
-  </div>
-  <p>For More Details, go to: <br><br><a href="services.html" class="neumorphic-button">Services</a></p>
-</section>
-<br>
-<section id="testimonials" class="testimonials">
-    <h2>Client Testimonials 💬</h2>
-    <div class="testimonials-inner">
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>"We are beyond impressed with the website created for our company. With nothing but our logo, they delivered a stunning, professional site that truly represents our brand. The communication and support were exceptional. Absolutely the best service we’ve ever received!"</p>
-                <span>– Captured Production</span>
-            </div>
-            <div class="testimonial">
-                <p>"Our new website is exactly what we needed—modern, clean, and easy for our clients to navigate. LaOne was responsive, professional, and handled every revision with patience. Highly recommended!"</p>
-                <span>– Mshengu Hanson Engineering</span>
-            </div>
-            <div class="testimonial">
-                <p>"From layout to functionality, every detail was executed with precision. Our site now reflects the professional image we were aiming for. Working with LaOne was a smooth and productive experience."</p>
-                <span>– InfoTech Managed Solutions</span>
-            </div>
-        </div>
-    </div>
-</section>
 
-<br>
-<section id="contact" class="contact">
-    <h2>Get in Touch</h2>
+    <p style="margin-top:1rem">More details here:
+      <a href="services.html" class="btn btn--ghost">Services</a>
+    </p>
+  </section>
+
+  <br> 
+
+  <!-- Contact -->
+  <section id="contact" class="contact container" data-aos="fade-up">
+    <h2 class="section-title">Get in Touch</h2>
     <form action="#" method="post" class="neumorphic-form">
-        <label for="name" class="visually-hidden">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required class="neumorphic-input">
+      <label for="name" class="visually-hidden">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required class="neumorphic-input">
 
-        <label for="email" class="visually-hidden">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required class="neumorphic-input">
+      <label for="email" class="visually-hidden">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required class="neumorphic-input">
 
-        <label for="message" class="visually-hidden">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="neumorphic-input"></textarea>
-        
-        <button type="submit" class="neumorphic-button">Send Message</button>
+      <label for="message" class="visually-hidden">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="neumorphic-input"></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
     </form>
-</section>
+  </section>
 
-<br>
-<footer>
+  <br><br>
+
+  <footer>
     <p>&copy; 2025 LT Dev Studio. All rights reserved.</p>
     <div class="socials">
-        <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
-        <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
-        <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
-        <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
+      <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
+      <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
     </div>
-</footer>
+  </footer>
 
- <div id="ideaFormOverlay" class="overlay">
-   <div class="popup neumorphic-popup">
-     <h2>Suggest What I Should Build Next 💡</h2>
-     <form action="https://getform.io/f/bwnwmpxa" method="POST">
-       <label for="idea">Your idea:</label>
-       <textarea id="idea" name="idea" rows="5" placeholder="E.g. Build a budgeting app, a portfolio template, etc." required></textarea>
-       <label for="email">Optional: Your email (if you'd like a reply)</label>
-       <input type="email" id="email" name="email" placeholder="you@example.com" />
-       <input type="text" name="_gotcha" style="display:none">
-       <div class="popup-buttons">
-         <button type="submit" class="btn neumorphic-button btn-primary">Submit</button>
-         <button type="button" class="btn neumorphic-button btn-cancel" onclick="closeIdeaForm()">Cancel</button>
-       </div>
-     </form>
-   </div>
- </div>
- 
+  <!-- Idea Form Popup -->
+  <div id="ideaFormOverlay" class="overlay" hidden>
+    <div class="popup neumorphic-popup">
+      <h2>Suggest What I Should Build Next 💡</h2>
+      <form action="https://getform.io/f/bwnwmpxa" method="POST">
+        <label for="idea">Your idea:</label>
+        <textarea id="idea" name="idea" rows="5" placeholder="E.g. Build a budgeting app, a portfolio template, etc." required></textarea>
 
+        <label for="email">Optional: Your email (if you'd like a reply)</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" />
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init(); // Keep this line here as it depends on the AOS library being loaded immediately before it.
-    </script>
-    <script src="script.js" defer></script>
+        <input type="text" name="_gotcha" style="display:none">
+        <div class="popup-buttons">
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn btn--ghost" onclick="closeIdeaForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js" defer></script>
 </body>
-
 </html>

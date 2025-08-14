@@ -1,109 +1,128 @@
-// This event listener ensures the script runs only after the full page is loaded.
+// script.js — site interactions + services carousel (testimonials removed)
 document.addEventListener('DOMContentLoaded', () => {
-    // ---------- AOS Library Initialization ----------
-    if (typeof AOS !== 'undefined') {
-        AOS.init();
-    }
+  /* ---------- AOS ---------- */
+  if (typeof AOS !== 'undefined') AOS.init();
 
-    // ---------- Fade-in & Stagger Logic for About Section ----------
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target); // Trigger once
-            }
-        });
+  /* ---------- Fade-in (About) ---------- */
+  (function initFadeIns() {
+    const els = document.querySelectorAll('.fade-in');
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
     }, { threshold: 0.2 });
+    els.forEach(el => io.observe(el));
+  })();
 
-    fadeElements.forEach(el => observer.observe(el));
+  /* =======================================================
+     SERVICES — grid on desktop, carousel on mobile
+     Markup:
+       .service-slider > .neumorphic-service-item* + .prev-service + .next-service
+     ======================================================= */
+  (function initServices() {
+    const slider = document.querySelector('.service-slider');
+    if (!slider) return;
 
-    // ---------- Testimonial Slider Logic ----------
-    const testimonials = document.querySelectorAll('.testimonial-slider .testimonial');
-    let currentIndexTestimonial = 0;
-    const delayTestimonial = 5000;
+    const cards = Array.from(slider.querySelectorAll('.neumorphic-service-item'));
+    const prevBtn = slider.querySelector('.prev-service');
+    const nextBtn = slider.querySelector('.next-service');
+    if (!cards.length) return;
 
-    function showTestimonial(index) {
-        testimonials.forEach((testimonial, i) => {
-            testimonial.classList.toggle('active', i === index);
-        });
+    const mql = window.matchMedia('(max-width: 720px)');
+    let current = 0;
+
+    const isCarousel = () => mql.matches;
+
+    function render() {
+      const carousel = isCarousel();
+
+      if (prevBtn) prevBtn.style.display = carousel ? 'inline-flex' : 'none';
+      if (nextBtn) nextBtn.style.display = carousel ? 'inline-flex' : 'none';
+
+      cards.forEach((card, idx) => {
+        if (carousel) {
+          const active = idx === current;
+          card.style.display = active ? 'block' : 'none';
+          card.classList.toggle('active', active);
+          card.setAttribute('aria-hidden', active ? 'false' : 'true');
+          if (active) card.setAttribute('tabindex', '0'); else card.removeAttribute('tabindex');
+        } else {
+          card.style.display = 'block';
+          card.classList.remove('active');
+          card.removeAttribute('aria-hidden');
+          card.removeAttribute('tabindex');
+        }
+      });
     }
 
-    function nextTestimonial() {
-        currentIndexTestimonial = (currentIndexTestimonial + 1) % testimonials.length;
-        showTestimonial(currentIndexTestimonial);
-    }
+    function next() { current = (current + 1) % cards.length; render(); }
+    function prev() { current = (current - 1 + cards.length) % cards.length; render(); }
 
-    if (testimonials.length > 0) {
-        showTestimonial(currentIndexTestimonial);
-        setInterval(nextTestimonial, delayTestimonial);
-    }
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
 
-    // ---------- Mobile Navigation Toggle ----------
+    // Swipe (mobile)
+    let startX = null;
+    slider.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', (e) => {
+      if (startX == null || !isCarousel()) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      const THRESH = 40;
+      if (dx > THRESH) prev();
+      if (dx < -THRESH) next();
+      startX = null;
+    });
+
+    render();
+    mql.addEventListener('change', () => { current = 0; render(); });
+
+    // Fallback re-render on resize
+    let rAF;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => { current = 0; render(); });
+    });
+  })();
+
+  /* ---------- Mobile Navigation ---------- */
+  (function initNav() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    if (!menuToggle || !navLinks) return;
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-
-    // ---------- Popup Form Logic ----------
-    window.openIdeaForm = () => {
-        document.getElementById("ideaFormOverlay").style.display = "flex";
-    };
-
-    window.closeIdeaForm = () => {
-        document.getElementById("ideaFormOverlay").style.display = "none";
-    };
-
-    // ---------- Service Slider Logic ----------
-    const serviceItems = document.querySelectorAll('.service-slider .neumorphic-service-item');
-    const prevServiceBtn = document.querySelector('.prev-service');
-    const nextServiceBtn = document.querySelector('.next-service');
-    let currentServiceIndex = 0;
-
-    function showService(index) {
-        serviceItems.forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-        });
-    }
-
-    function nextService() {
-        currentServiceIndex = (currentServiceIndex + 1) % serviceItems.length;
-        showService(currentServiceIndex);
-    }
-
-    function prevService() {
-        currentServiceIndex = (currentServiceIndex - 1 + serviceItems.length) % serviceItems.length;
-        showService(currentServiceIndex);
-    }
-
-    if (serviceItems.length > 0) {
-        showService(currentServiceIndex);
-        if (prevServiceBtn) prevServiceBtn.addEventListener('click', prevService);
-        if (nextServiceBtn) nextServiceBtn.addEventListener('click', nextService);
-    }
-
-    // ---------- Project Card Mobile Click Logic ----------
-    const projectCards = document.querySelectorAll('.js-project-card');
-
-    projectCards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                const isActive = card.classList.contains('active');
-                projectCards.forEach(otherCard => otherCard.classList.remove('active'));
-                if (!isActive) card.classList.add('active');
-            }
-        });
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  })();
+
+  /* ---------- Popup Form ---------- */
+  (function initIdeaForm() {
+    const overlay = document.getElementById('ideaFormOverlay');
+    window.openIdeaForm = () => { if (overlay) overlay.removeAttribute('hidden'); overlay && (overlay.style.display = 'flex'); };
+    window.closeIdeaForm = () => { if (overlay) overlay.setAttribute('hidden', ''); overlay && (overlay.style.display = 'none'); };
+  })();
+
+  /* ---------- Project Card tap-to-expand (mobile) ---------- */
+  (function initProjectCards() {
+    const cards = document.querySelectorAll('.js-project-card');
+    if (!cards.length) return;
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          const wasActive = card.classList.contains('active');
+          cards.forEach(c => c.classList.remove('active'));
+          if (!wasActive) card.classList.add('active');
+        }
+      });
+    });
+  })();
 });
+// script.js — end of site interactions

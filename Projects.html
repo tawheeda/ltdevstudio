@@ -4,127 +4,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LT Dev Studio - Projects</title>
-  <link href="Logoo.png" rel="icon">
+   <link href="mark-lt-outline.svg" rel="icon">
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Professional fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">LT Dev Studio</div>
-      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <a href="index.html" class="brand" aria-label="LT Dev Studio">
+      <img src="mark-lt-outline.svg" alt="LT Dev Studio logo" width="28" height="28" />
+      <span class="brand-text">LT Dev Studio</span>
+    </a>
 
-<section class="projects">
-  <h2>My Projects</h2>
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <div class="project-grid">
 
-    <!-- Project Card 1 -->
-    <div class="project-card js-project-card" data-aos="fade-up" tabindex="0">
-      <img src="dbsa.jpg" alt="Decibel Breakers SA Website Screenshot">
-      <div class="project-details">
-        <h3>Decibel Breakers SA</h3>
-        <p>
-          A dynamic automotive service provider specializing in high-quality car audio installations, custom boot setups, suspension overhauls, engine rebuilds, and full project car builds. The website showcases their diverse services and portfolio, reflecting their commitment to delivering exceptional automotive experiences.
-        </p>
-        <div class="project-buttons">
-          <a href="https://tawheeda.github.io/decibelBreakers/" target="_blank" class="neumorphic-button">View Site</a>
-          <a href="https://github.com/tawheeda/decibelBreakers/" target="_blank" class="neumorphic-button">View on GitHub</a>
+
+  <main>
+    <section class="projects container" data-aos="fade-up">
+      <h2 class="section-title">Project Work</h2>
+      <p class="section-subtitle">A selection of recent builds. Each project includes its stack and links.</p>
+
+      <div class="project-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card js-project-card" data-aos="fade-up" tabindex="0">
+          <img src="dbsa.jpg" alt="Decibel Breakers SA Website Screenshot">
+          <div class="project-details">
+            <div class="project-meta">
+              <span class="badge badge--tech"><code>HTML</code></span>
+              <span class="badge badge--tech"><code>CSS</code></span>
+              <span class="badge badge--tech"><code>JavaScript</code></span>
+            </div>
+            <h3>Decibel Breakers SA</h3>
+            <p>Automotive brand site featuring gallery, service catalogue, and lead-gen CTAs.</p>
+            <div class="project-buttons" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+              <a href="https://tawheeda.github.io/decibelBreakers/" target="_blank" rel="noopener" class="btn">Live Site</a>
+              <a href="https://github.com/tawheeda/decibelBreakers/" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Project Card 2 -->
-    <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="200" tabindex="0">
-      <img src="mshengu.png" alt="Mshengu Hanson Website Screenshot">
-      <div class="project-details">
-        <h3>Mshengu Hanson</h3>
-        <p>
-          Mshengu Hanson is a South African engineering firm offering specialized services in mining, industrial supply, and IT consultation. Their website highlights their expertise and certifications, emphasizing their dedication to delivering innovative solutions across various sectors.
-        </p>
-        <div class="project-buttons">
-          <a href="https://mshengu-hanson.co.za" target="_blank" class="neumorphic-button">View Site</a>
-          <a href="https://github.com/tawheeda/mshengu_hanson" target="_blank" class="neumorphic-button">View on GitHub</a>
+        <!-- Project 2 -->
+        <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="100" tabindex="0">
+          <img src="mshengu.png" alt="Mshengu Hanson Website Screenshot">
+          <div class="project-details">
+            <div class="project-meta">
+              <span class="badge badge--tech"><code>HTML</code></span>
+              <span class="badge badge--tech"><code>CSS</code></span>
+              <span class="badge badge--tech"><code>JavaScript</code></span>
+            </div>
+            <h3>Mshengu Hanson</h3>
+            <p>Engineering services site highlighting mining, industrial supply, and IT consultation capabilities.</p>
+            <div class="project-buttons" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+              <a href="https://mshengu-hanson.co.za" target="_blank" rel="noopener" class="btn">Live Site</a>
+              <a href="https://github.com/tawheeda/mshengu_hanson" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Project Card 3 -->
-    <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="300" tabindex="0">
-      <img src="captured_resized.jpg" alt="Captured Production Website Screenshot">
-      <div class="project-details">
-        <h3>Captured Production</h3>
-        <p>
-          Captured Production is a visual storytelling team specializing in high-quality photography and videography services. The website features their diverse portfolio, showcasing their ability to bring moments to life with authenticity and style.
-        </p>
-        <div class="project-buttons">
-          <a href="https://capturedprod.co.za/" target="_blank" class="neumorphic-button">View Site</a>
-          <a href="https://github.com/tawheeda/captured_production" target="_blank" class="neumorphic-button">View on GitHub</a>
+        <!-- Project 3 -->
+        <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="150" tabindex="0">
+          <img src="captured_resized.jpg" alt="Captured Production Website Screenshot">
+          <div class="project-details">
+            <div class="project-meta">
+              <span class="badge badge--tech"><code>HTML</code></span>
+              <span class="badge badge--tech"><code>CSS</code></span>
+              <span class="badge badge--tech"><code>JavaScript</code></span>
+              <span class="badge"><code>AOS</code></span>
+            </div>
+            <h3>Captured Production</h3>
+            <p>Portfolio site for a visual storytelling team with curated galleries and contact funnels.</p>
+            <div class="project-buttons" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+              <a href="https://capturedprod.co.za/" target="_blank" rel="noopener" class="btn">Live Site</a>
+              <a href="https://github.com/tawheeda/captured_production" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Project Card 4 -->
-    <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="300" tabindex="0">
-      <img src="itms.png" alt="InfoTech Managed Solutions Website Screenshot">
-      <div class="project-details">
-        <h3>InfoTech Managed Solutions</h3>
-        <p>
-          InfoTech Managed Solutions provides specialized services and supplies to key industries, including mining, industrial supply, and IT consultation. Their website outlines their expertise and commitment to delivering efficient and reliable solutions tailored to meet unique business needs.
-        </p>
-        <div class="project-buttons">
-          <a href="https://tawheeda.github.io/itms/" target="_blank" class="neumorphic-button">View Site</a>
-          <a href="https://github.com/tawheeda/itms" target="_blank" class="neumorphic-button">View on GitHub</a>
+        <!-- Project 4 -->
+        <div class="project-card js-project-card" data-aos="fade-up" data-aos-delay="200" tabindex="0">
+          <img src="itms.png" alt="InfoTech Managed Solutions Website Screenshot">
+          <div class="project-details">
+            <div class="project-meta">
+              <span class="badge badge--tech"><code>HTML</code></span>
+              <span class="badge badge--tech"><code>CSS</code></span>
+              <span class="badge badge--tech"><code>JavaScript</code></span>
+            </div>
+            <h3>InfoTech Managed Solutions</h3>
+            <p>Sector-based site covering mining, industrial supply, and IT with shared components and galleries.</p>
+            <div class="project-buttons" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+              <a href="https://tawheeda.github.io/itms/" target="_blank" rel="noopener" class="btn">Live Site</a>
+              <a href="https://github.com/tawheeda/itms" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
+            </div>
+          </div>
         </div>
+
       </div>
-    </div>
-    
-  </div>
-</section>
-
-
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 LT Dev Studio. All rights reserved.</p>
     <div class="socials">
-      <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank">LinkedIn</a>
-      <a href="https://github.com/tawheeda" target="_blank">GitHub</a>
-      <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank">Instagram</a>
-      <a href="http://wa.me/27754875016" target="_blank">Whatsapp</a>
+      <a href="https://www.linkedin.com/in/laone-setlhoke-856503167" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tawheeda" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.instagram.com/lt.dev_studio?igsh=bGQyNWVubmdlYzg1&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+      <a href="http://wa.me/27754875016" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </footer>
 
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-
     document.addEventListener('DOMContentLoaded', () => {
       const menuToggle = document.querySelector('.menu-toggle');
       const navLinks = document.querySelector('.nav-links');
-
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-
-      // Close nav on link click for mobile
+      menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
       document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-          }
-        });
+        link.addEventListener('click', () => navLinks.classList.remove('active'));
       });
     });
   </script>
-  
 </body>
 </html>
