@@ -448,6 +448,65 @@ nav{ position: relative; }
   }
 }
 
+/* === Arrow-only service nav (no circles) === */
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  /* remove the circle look */
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+
+  /* readable, tappable arrows */
+  padding: 6px 8px;             /* invisible hit area */
+  color: #fff;
+  font-size: 26px;               /* arrow size */
+  line-height: 1;
+  text-shadow: 0 1px 8px rgba(0,0,0,.35);
+  box-shadow: none;
+  cursor: pointer;
+
+  /* keep them hidden on desktop; revealed in your mobile MQ */
+  display: none;
+}
+
+.prev-service{ left: 4px; }
+.next-service{ right: 4px; }
+
+.slider-btn:hover{
+  color: var(--brand);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slider-btn:focus-visible{
+  outline: 2px dashed var(--brand);
+  outline-offset: 2px;
+}
+
+/* keep your existing mobile rule that shows the buttons */
+@media (max-width: 720px){
+  .slider-btn{ display: inline-flex; }
+}
+
+/* optional: make arrows bigger on touch screens */
+@media (pointer: coarse){
+  .slider-btn{ font-size: 30px; padding: 10px; }
+}
+
+/* Keep arrows from overlapping card text on mobile */
+@media (max-width: 720px){
+  .service-slider{
+    /* creates gutters so arrows don't sit on top of text */
+    padding-inline: 40px;
+    overflow: hidden; /* avoids horizontal scroll if arrows nudge out */
+  }
+  .prev-service{ left: 8px; }
+  .next-service{ right: 8px; }
+}
+
 /* =========================================
    LT DEV STUDIO — End of stylesheet
    ========================================= */
