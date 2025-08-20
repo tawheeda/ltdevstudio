@@ -170,16 +170,6 @@ nav{
 .neumorphic-service-item h3{ margin:.25rem 0 .25rem; font-size:1.05rem; }
 .neumorphic-service-item p{ margin:0; color:var(--muted); font-size:.95rem; }
 
-/* Nav buttons: hidden by default (desktop) — shown on mobile below */
-.slider-btn{
-  position:absolute; top:50%; transform:translateY(-50%);
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.14);
-  color:#fff; width:36px; height:36px; border-radius:999px; cursor:pointer;
-  display:none; /* prevent desktop collision with JS */
-}
-.prev-service{ left:-6px; } .next-service{ right:-6px; }
-
 /* TABLES (Services page) */
 .table-responsive{ width:100%; overflow:auto; border-radius:12px; border:1px solid rgba(255,255,255,.06); }
 .neumorphic-table{
@@ -349,10 +339,20 @@ footer .socials a:hover::after{ opacity:.9; transform: scaleX(1); }
   .service-slider{ grid-template-columns: 1fr; }
   .service-slider .neumorphic-service-item{ display:none; }
   .service-slider .neumorphic-service-item.active{ display:block; }
+
+  /* show slider arrows on mobile */
   .slider-btn{ display:inline-flex; }
+
+  /* larger tap targets on mobile */
+  .slider-btn{ width:40px; height:40px; }
+
+  /* keep arrows from overlapping card text */
+  .service-slider{ padding-inline:40px; overflow:hidden; }
+  .prev-service{ left:8px; }
+  .next-service{ right:8px; }
 }
 @media (max-width: 460px){
-  .btn{ width:100%; justify-content:center; }
+  .actions .btn{ width:100%; justify-content:center; } /* scoped to action rows only */
   .actions{ flex-direction:column; }
 }
 
@@ -363,7 +363,6 @@ img{max-width:100%; height:auto;}
 nav{ position: relative; }
 @media (max-width: 720px){
   .nav-links{
-    /* was: top:64px; left:0; right:0; */
     top: calc(100% + 8px);
     left: 12px; right: 12px;
     border-radius: var(--radius);
@@ -372,12 +371,12 @@ nav{ position: relative; }
 
 /* About image: keep the compact, framed portrait and center it on small screens */
 @media (max-width: 1024px){
-  .about-img{ margin-inline:auto; max-width:480px; } /* centers and caps width */
+  .about-img{ margin-inline:auto; max-width:480px; }
 }
 @media (max-width: 520px){
   .about-img img{
-    max-width:360px;       /* trims to a friendlier phone size (like your screenshot) */
-    aspect-ratio: 4 / 5;   /* keeps the tall portrait look */
+    max-width:360px;
+    aspect-ratio: 4 / 5;
   }
 }
 
@@ -386,132 +385,37 @@ nav{ position: relative; }
   .hero-inner{ gap:18px; padding:20px; }
 }
 
-/* Optional: slightly larger tap targets for service slider arrows on phones */
-@media (max-width: 720px){
-  .slider-btn{ width:40px; height:40px; }
-}
-
-/* ===== Mobile-friendly tables (stacked) ===== */
-@media (max-width: 720px){
-  /* Let the table expand to full width without horizontal scroll */
-  .table-responsive{
-    overflow: visible;
-    border: 0;
-  }
-
-  /* Remove enforced min-width on small screens */
-  .neumorphic-table{
-    min-width: 0;
-    width: 100%;
-    border-spacing: 0;
-  }
-
-  /* Turn the table into blocks */
-  .neumorphic-table thead{
-    position: absolute;
-    left: -9999px; /* hide header but keep accessible */
-  }
-  .neumorphic-table, 
-  .neumorphic-table tbody, 
-  .neumorphic-table tr, 
-  .neumorphic-table td {
-    display: block;
-    width: 100%;
-  }
-
-  /* Each row as a card */
-  .neumorphic-table tbody tr{
-    margin: 0 0 12px;
-    background: linear-gradient(180deg, #0c1a33, #0b1730);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  /* Each cell shows its label from data-label */
-  .neumorphic-table td{
-    display: grid;
-    grid-template-columns: 42% 1fr; /* label | value */
-    gap: 8px;
-    align-items: start;
-    padding: 12px 14px;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-  }
-  .neumorphic-table td:last-child{
-    border-bottom: 0;
-  }
-
-  .neumorphic-table td::before{
-    content: attr(data-label);
-    color: var(--muted);
-    font-weight: 700;
-  }
-}
-
 /* === Arrow-only service nav (no circles) === */
 .slider-btn{
   position:absolute;
   top:50%;
   transform: translateY(-50%);
-  /* remove the circle look */
   background: transparent;
   border: 0;
   border-radius: 0;
   width: auto;
   height: auto;
-
-  /* readable, tappable arrows */
-  padding: 6px 8px;             /* invisible hit area */
+  padding: 6px 8px;
   color: #fff;
-  font-size: 26px;               /* arrow size */
+  font-size: 26px;
   line-height: 1;
   text-shadow: 0 1px 8px rgba(0,0,0,.35);
   box-shadow: none;
   cursor: pointer;
-
-  /* keep them hidden on desktop; revealed in your mobile MQ */
-  display: none;
+  display: none; /* hidden on desktop; shown in mobile MQ above */
 }
-
-.prev-service{ left: 4px; }
-.next-service{ right: 4px; }
-
+.prev-service{ left:8px; }
+.next-service{ right:8px; }
 .slider-btn:hover{
   color: var(--brand);
   transform: translateY(-50%) scale(1.08);
 }
-
 .slider-btn:focus-visible{
   outline: 2px dashed var(--brand);
   outline-offset: 2px;
 }
-
-/* keep your existing mobile rule that shows the buttons */
-@media (max-width: 720px){
-  .slider-btn{ display: inline-flex; }
-}
-
-/* optional: make arrows bigger on touch screens */
 @media (pointer: coarse){
-  .slider-btn{ font-size: 30px; padding: 10px; }
-}
-
-/* Keep arrows from overlapping card text on mobile */
-@media (max-width: 720px){
-  .service-slider{
-    /* creates gutters so arrows don't sit on top of text */
-    padding-inline: 40px;
-    overflow: hidden; /* avoids horizontal scroll if arrows nudge out */
-  }
-  .prev-service{ left: 8px; }
-  .next-service{ right: 8px; }
-}
-
-/* Overlay already present in your CSS */
-.overlay[hidden]{ display:none !important; }
-.overlay{
-  position:fixed; inset:0; display:grid; place-items:center;
-  background: rgba(0,0,0,.6); z-index:50; padding:16px;
+  .slider-btn{ font-size:30px; padding:10px; }
 }
 
 /* Popup shell */
@@ -528,8 +432,6 @@ nav{ position: relative; }
   font-size: clamp(1.15rem, 2.2vw, 1.35rem);
   letter-spacing:.2px;
 }
-
-/* Reuse .neumorphic-form styles you already have; add niceties */
 .neumorphic-popup .neumorphic-form label{
   font-weight:600; color:#cfe0ff; margin-bottom:4px;
 }
@@ -550,6 +452,106 @@ nav{ position: relative; }
 @keyframes pop-fade{
   from{ opacity:0; transform: translateY(6px) scale(.98); }
   to{ opacity:1; transform: translateY(0) scale(1); }
+}
+
+/* Contact form: make submit button small/standard */
+.neumorphic-form .btn{
+  justify-self:start;
+  width:auto;
+  padding:8px 14px;
+  font-size:14px;
+  line-height:1.2;
+  border-radius:8px;
+  box-shadow:none;
+}
+/* keep inputs compact and left-aligned in the grid */
+.neumorphic-form{ justify-items:start; }
+@media (max-width:460px){
+  .neumorphic-form .btn{ width:auto; }
+}
+/* Section CTA card link */
+.section-cta{ margin-top:1rem; }
+
+.link-card{
+  display:flex; align-items:center; gap:12px;
+  text-decoration:none; color:var(--text);
+  padding:14px 16px; border-radius: var(--radius);
+  background: linear-gradient(180deg, #0e1a33, #0b1630);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.link-card:hover{
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 35%, rgba(255,255,255,.06));
+  box-shadow: 0 12px 30px rgba(2,6,23,.45);
+}
+.link-card:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring), 0 12px 30px rgba(2,6,23,.45);
+}
+
+/* Icon chip (uses theme colours) */
+.icon-wrap{
+  width:40px; height:40px; display:grid; place-items:center;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);
+  color: color-mix(in srgb, var(--brand) 75%, #dbeafe);
+}
+.icon-wrap svg{ width:20px; height:20px; }
+
+/* Text stack */
+.link-card .text{ display:flex; flex-direction:column; line-height:1.1; }
+.link-card .title{ font-weight:800; letter-spacing:.2px; }
+.link-card .sub{ color:var(--muted); font-size:.93rem; margin-top:2px; }
+
+/* Arrow */
+.link-card .chevron{
+  margin-left:auto; font-size:20px;
+  color: color-mix(in srgb, var(--brand) 70%, #dbeafe);
+  transition: transform .15s ease;
+}
+.link-card:hover .chevron{ transform: translateX(3px); }
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .link-card{ padding:12px 14px; }
+  .icon-wrap{ width:36px; height:36px; }
+  .icon-wrap svg{ width:18px; height:18px; }
+}
+/* Make the Services CTA compact and content-hugging */
+.section-cta{
+  margin-top: .75rem;
+  width: fit-content;              /* no full-width stretch */
+  max-width: 520px;                /* safety cap */
+}
+
+.link-card--compact{
+  gap: 10px;
+  padding: 10px 12px;              /* tighter padding */
+  min-height: 0;                   /* allow it to shrink */
+  box-shadow: 0 8px 22px rgba(2,6,23,.35); /* a bit lighter */
+}
+
+.link-card--compact .icon-wrap{
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+.link-card--compact .icon-wrap svg{
+  width: 16px; height: 16px;
+}
+
+.link-card--compact .title{ font-size: .98rem; }
+.link-card--compact .sub{ font-size: .88rem; margin-top: 1px; }
+
+.link-card--compact .chevron{ font-size: 18px; }
+
+/* On very small screens let it go full width but stay short */
+@media (max-width:520px){
+  .section-cta{ width: 100%; max-width: none; }
+  .link-card--compact{ padding: 10px 12px; }
 }
 
 
