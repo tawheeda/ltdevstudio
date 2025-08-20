@@ -144,8 +144,8 @@ nav{
 .about-img img{
   display:block;
   width:100%;
-  max-width:420px;          /* desktop size like the screenshot */
-  aspect-ratio: 4 / 5;      /* tall portrait */
+  max-width:420px;
+  aspect-ratio: 4 / 5;
   object-fit:cover;
   border-radius:12px;
   box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset;
@@ -469,9 +469,16 @@ nav{ position: relative; }
 @media (max-width:460px){
   .neumorphic-form .btn{ width:auto; }
 }
-/* Section CTA card link */
-.section-cta{ margin-top:1rem; }
 
+/* ===== Section CTA (Services) — compact everywhere ===== */
+.section-cta{
+  margin-top:.6rem;
+  display:inline-block;  /* content-hugging */
+  width:auto;            /* never stretch */
+  align-self:flex-start;
+}
+
+/* Base card look shared by all link-cards */
 .link-card{
   display:flex; align-items:center; gap:12px;
   text-decoration:none; color:var(--text);
@@ -491,7 +498,7 @@ nav{ position: relative; }
   box-shadow: 0 0 0 3px var(--ring), 0 12px 30px rgba(2,6,23,.45);
 }
 
-/* Icon chip (uses theme colours) */
+/* Icon chip */
 .icon-wrap{
   width:40px; height:40px; display:grid; place-items:center;
   border-radius:10px;
@@ -514,46 +521,28 @@ nav{ position: relative; }
 }
 .link-card:hover .chevron{ transform: translateX(3px); }
 
-/* Responsive tweaks */
-@media (max-width:520px){
-  .link-card{ padding:12px 14px; }
-  .icon-wrap{ width:36px; height:36px; }
-  .icon-wrap svg{ width:18px; height:18px; }
-}
-/* Make the Services CTA compact and content-hugging */
-.section-cta{
-  margin-top: .75rem;
-  width: fit-content;              /* no full-width stretch */
-  max-width: 520px;                /* safety cap */
-}
-
+/* Compact variant for Services */
 .link-card--compact{
-  gap: 10px;
-  padding: 10px 12px;              /* tighter padding */
-  min-height: 0;                   /* allow it to shrink */
-  box-shadow: 0 8px 22px rgba(2,6,23,.35); /* a bit lighter */
+  flex:0 0 auto;          /* don't grow in flex */
+  gap:8px;
+  padding:8px 10px;
+  min-height:0;
+  box-shadow:0 6px 18px rgba(2,6,23,.32);
 }
-
 .link-card--compact .icon-wrap{
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width:28px; height:28px; border-radius:8px;
 }
-.link-card--compact .icon-wrap svg{
-  width: 16px; height: 16px;
-}
+.link-card--compact .icon-wrap svg{ width:14px; height:14px; }
+.link-card--compact .title{ font-size:.95rem; }
+.link-card--compact .sub{ font-size:.82rem; margin-top:1px; }
+.link-card--compact .chevron{ font-size:16px; }
 
-.link-card--compact .title{ font-size: .98rem; }
-.link-card--compact .sub{ font-size: .88rem; margin-top: 1px; }
-
-.link-card--compact .chevron{ font-size: 18px; }
-
-/* On very small screens let it go full width but stay short */
+/* Optional: only upscale non-compact link-cards on very small screens */
 @media (max-width:520px){
-  .section-cta{ width: 100%; max-width: none; }
-  .link-card--compact{ padding: 10px 12px; }
+  .link-card:not(.link-card--compact){ padding:12px 14px; }
+  .link-card:not(.link-card--compact) .icon-wrap{ width:36px; height:36px; }
+  .link-card:not(.link-card--compact) .icon-wrap svg{ width:18px; height:18px; }
 }
-
 
 /* =========================================
    LT DEV STUDIO — End of stylesheet
