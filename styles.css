@@ -544,6 +544,62 @@ nav{ position: relative; }
   .link-card:not(.link-card--compact) .icon-wrap svg{ width:18px; height:18px; }
 }
 
+/* Force tables to stack on narrow screens (<= 900px) */
+@media (max-width: 900px){
+  .table-responsive{
+    overflow: visible;
+    border: 0;
+  }
+
+  .neumorphic-table{
+    width: 100%;
+    min-width: 0;          /* override the desktop min-width */
+    border-spacing: 0;
+  }
+
+  /* fully hide header to avoid layout interference */
+  .neumorphic-table thead{ 
+    display: none; 
+  }
+
+  /* stack rows as blocks */
+  .neumorphic-table,
+  .neumorphic-table tbody,
+  .neumorphic-table tr,
+  .neumorphic-table td{
+    display: block;
+    width: 100%;
+  }
+
+  /* row as a card */
+  .neumorphic-table tbody tr{
+    margin: 0 0 12px;
+    background: linear-gradient(180deg, #0c1a33, #0b1730);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* label | value layout */
+  .neumorphic-table td{
+    display: grid;
+    grid-template-columns: 42% 1fr;   /* label -> value */
+    gap: 8px;
+    align-items: start;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .neumorphic-table td:last-child{ border-bottom: 0; }
+
+  /* show the column name from data-label */
+  .neumorphic-table td::before{
+    content: attr(data-label);
+    color: var(--muted);
+    font-weight: 700;
+  }
+}
+
+
 /* =========================================
    LT DEV STUDIO — End of stylesheet
    ========================================= */
