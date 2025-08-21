@@ -124,5 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   })();
+
+    // Auto-apply data-labels from thead for mobile stacked tables
+  document.querySelectorAll('.neumorphic-table').forEach(table => {
+    const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+    table.querySelectorAll('tbody tr').forEach(row => {
+      row.querySelectorAll('td').forEach((td, i) => {
+        if (!td.hasAttribute('data-label') || !td.getAttribute('data-label').trim()) {
+          td.setAttribute('data-label', headers[i] || '');
+        }
+      });
+    });
+  })
+
 });
 // script.js — end of site interactions
